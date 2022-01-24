@@ -1,6 +1,7 @@
 // Components
 import Box from "@mui/material/Box"
 import Button from "@mui/material/Button"
+import Grid from "@mui/material/Grid"
 import MenuItem from "@mui/material/MenuItem"
 import TextField from "@mui/material/TextField"
 import { SelectField } from "@components"
@@ -47,44 +48,73 @@ export default function SignupForm() {
 	useEffect(() => (async () => setOptions(await getOptions()))(), [])
 
 	return (
-		<Box component="form" ref={formEl} onSubmit={handleSubmit}>
-			<TextField name="name" label="Full Name" />
-			<TextField
-				name="email"
-				label="Email Address"
-				error={emailError}
-				helperText={emailError && "Please enter valid email"}
-				onChange={() => setEmailError(false)}
-			/>
-			<TextField
-				name="password"
-				label="Password"
-				type="password"
-				error={passwordError}
-				helperText={passwordError && "Passwords do not match"}
-				onChange={() => setPasswordError(false)}
-			/>
-			<TextField
-				name="password-confirm"
-				label="Confirm Password"
-				type="password"
-				error={passwordError}
-				helperText={passwordError && "Passwords do not match"}
-				onChange={() => setPasswordError(false)}
-			/>
+		<Box
+			component="form"
+			ref={formEl}
+			onSubmit={handleSubmit}
+			sx={{
+				display: "flex",
+				flexDirection: "column",
+				justifyContent: "center",
+				height: "100vh",
+			}}>
+			<Grid container spacing={2} columns={2}>
+				<Grid item xs={2} sm={1}>
+					<TextField name="name" label="Full Name" />
+				</Grid>
+				<Grid item xs={2} sm={1}>
+					<TextField
+						name="email"
+						label="Email Address"
+						error={emailError}
+						helperText={emailError && "Please enter valid email"}
+						onChange={() => setEmailError(false)}
+					/>
+				</Grid>
 
-			<SelectField name="occupation" options={occupations} />
-			<SelectField
-				name="state"
-				options={states}
-				callback={({ name, abbreviation }) => (
-					<MenuItem key={abbreviation} value={abbreviation}>
-						{name}
-					</MenuItem>
-				)}
-			/>
-			<Button type="submit">Signup</Button>
-			<Button variant="outlined">Login</Button>
+				<Grid item xs={2} sm={1}>
+					<TextField
+						name="password"
+						label="Password"
+						type="password"
+						error={passwordError}
+						helperText={passwordError && "Passwords do not match"}
+						onChange={() => setPasswordError(false)}
+					/>
+				</Grid>
+				<Grid item xs={2} sm={1}>
+					<TextField
+						name="password-confirm"
+						label="Confirm Password"
+						type="password"
+						error={passwordError}
+						helperText={passwordError && "Passwords do not match"}
+						onChange={() => setPasswordError(false)}
+					/>
+				</Grid>
+
+				<Grid item xs={2} sm={1}>
+					<SelectField name="occupation" options={occupations} />
+				</Grid>
+				<Grid item xs={2} sm={1}>
+					<SelectField
+						name="state"
+						options={states}
+						callback={({ name, abbreviation }) => (
+							<MenuItem key={abbreviation} value={abbreviation}>
+								{name}
+							</MenuItem>
+						)}
+					/>
+				</Grid>
+			</Grid>
+			<Box sx={{ mt: 2 }}>
+				<Grid container spacing={2} justifyContent="end">
+					<Grid item>
+						<Button type="submit">Signup</Button>
+					</Grid>
+				</Grid>
+			</Box>
 		</Box>
 	)
 }

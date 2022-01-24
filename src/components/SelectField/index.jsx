@@ -26,7 +26,7 @@ export default function SelectField({
 	const [value, setValue] = useState("")
 
 	return (
-		<FormControl required sx={{ minWidth: 200 }}>
+		<FormControl required>
 			<InputLabel id={LABEL_ID}>{LABEL}</InputLabel>
 			<Select
 				name={NAME}

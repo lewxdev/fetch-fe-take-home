@@ -1,4 +1,5 @@
 import { StrictMode } from "react"
+import Container from "@mui/material/Container"
 import CssBaseline from "@mui/material/CssBaseline"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 
@@ -18,22 +19,32 @@ export default function App({ children }) {
 		components: {
 			MuiButton: {
 				defaultProps: {
-					variant: "contained"
-				}
+					variant: "contained",
+				},
+			},
+			MuiFormControl: {
+				defaultProps: {
+					fullWidth: true,
+				},
 			},
 			MuiTextField: {
 				defaultProps: {
-					required: true
-				}
-			}
-		}
+					required: true,
+					fullWidth: true,
+				},
+			},
+		},
 	})
+
+	const lg = useMediaQuery(theme.breakpoints.down("lg"))
 
 	return (
 		<StrictMode>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
-				{children}
+				<Container maxWidth={lg ? "sm" : "md"}>
+					{children}
+				</Container>
 			</ThemeProvider>
 		</StrictMode>
 	)
