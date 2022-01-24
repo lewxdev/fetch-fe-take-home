@@ -1,4 +1,9 @@
 import ReactDOM from "react-dom"
-import { App } from "@components"
+import { App, SignupForm } from "@components"
 
-ReactDOM.render(<App />, document.querySelector("#root"))
+ReactDOM.render(
+	<App>
+		<SignupForm />
+	</App>,
+	document.querySelector("#root")
+)

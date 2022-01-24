@@ -37,7 +37,7 @@ export const getOptions = async () =>
 /**
  * Sends valid JSON representing user creation data from a submission form
  * @param {PostBody} data - the POST body for the user creation form
- * @returns the `statusText` of the response given it was successful
+ * @returns the `status` of the response given it was successful
  */
 export const postUser = async (data) =>
-	await axios.post(ENDPOINT_URL, data).then(({ statusText }) => statusText)
+	await axios.post(ENDPOINT_URL, data).then(({ status }) => status)

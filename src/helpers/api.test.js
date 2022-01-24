@@ -45,6 +45,6 @@ describe("`postUser()` TESTS", () => {
 			state: "IN"
 		}
 
-		await expect(postUser(VALID_BODY)).resolves.toBe("OK")
+		await expect(postUser(VALID_BODY)).resolves.toBe(200)
 	})
 })

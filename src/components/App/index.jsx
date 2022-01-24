@@ -1,4 +1,4 @@
-import React, { StrictMode } from "react"
+import { StrictMode } from "react"
 import CssBaseline from "@mui/material/CssBaseline"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 
@@ -15,6 +15,18 @@ export default function App({ children }) {
 		palette: {
 			mode: prefersDark ? "dark" : "light",
 		},
+		components: {
+			MuiButton: {
+				defaultProps: {
+					variant: "contained"
+				}
+			},
+			MuiTextField: {
+				defaultProps: {
+					required: true
+				}
+			}
+		}
 	})
 
 	return (
