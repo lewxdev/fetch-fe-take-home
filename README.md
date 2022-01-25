@@ -14,5 +14,6 @@ Justification for the few core dependencies of this project lies in its values f
 + [`@craco/craco`](https://www.npmjs.com/package/@craco/craco) - Allows for advanced configuration of webpack in create react app without ejection from the default (used for webpack aliases)
 + [`@mui/material`](https://mui.com) - MUI and its sibling dependencies (`@emotion/react` and `@emotion/styled`) are used as the primary React UI library for rapid/extensible development
 + [`axios`](https://www.npmjs.com/package/axios) - Provides a developer-friendly alternative to the browser-native [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for making HTTP requests (for interfacing with the exercise's provided API)
++ [`email-validator`](https://www.npmjs.com/package/email-validator) - Provides a plug-and-play solution for validation of email strings
 
-<!-- [See the completed exercise](https://lewxdev.github.com/fetch-fe-take-home) -->
+[See the completed exercise](https://lewxdev.github.com/fetch-fe-take-home)

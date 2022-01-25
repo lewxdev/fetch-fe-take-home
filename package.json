@@ -1,6 +1,7 @@
 {
 	"name": "fetch-fe-take-home",
 	"version": "0.1.0",
+	"homepage": "https://lewxdev.github.com/fetch-fe-take-home",
 	"private": true,
 	"dependencies": {
 		"@craco/craco": "^6.4.3",
@@ -20,6 +21,8 @@
 		"start": "craco start",
 		"build": "craco build",
 		"test": "craco test",
+		"predeploy": "craco build",
+		"deploy": "gh-pages -b master -d build",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
@@ -39,5 +42,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"gh-pages": "^3.2.3"
 	}
 }
