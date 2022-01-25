@@ -5,6 +5,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles"
 
 import useMediaQuery from "@mui/material/useMediaQuery"
 
+import themeContent from "./theme"
+
 /**
  * The root React component of the app. Includes necessary configuration for MUI and React
  * @param {object} props - the component properties
@@ -12,39 +14,17 @@ import useMediaQuery from "@mui/material/useMediaQuery"
  */
 export default function App({ children }) {
 	const prefersDark = useMediaQuery("(prefers-color-scheme: dark)")
-	const theme = createTheme({
-		palette: {
-			mode: prefersDark ? "dark" : "light",
-		},
-		components: {
-			MuiButton: {
-				defaultProps: {
-					variant: "contained",
-				},
-			},
-			MuiFormControl: {
-				defaultProps: {
-					fullWidth: true,
-				},
-			},
-			MuiTextField: {
-				defaultProps: {
-					required: true,
-					fullWidth: true,
-				},
-			},
-		},
-	})
-
+	const theme = createTheme(
+		{ palette: { mode: prefersDark ? "dark" : "light" } },
+		themeContent
+	)
 	const lg = useMediaQuery(theme.breakpoints.down("lg"))
 
 	return (
 		<StrictMode>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
-				<Container maxWidth={lg ? "sm" : "md"}>
-					{children}
-				</Container>
+				<Container maxWidth={lg ? "sm" : "md"}>{children}</Container>
 			</ThemeProvider>
 		</StrictMode>
 	)
